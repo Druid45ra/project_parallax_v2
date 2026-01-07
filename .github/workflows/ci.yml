@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - name: Install dependencies
+        run: npm ci
+      - name: Prettier check
+        run: npm run prettier:check
+      - name: HTML validate
+        run: npm run html:validate
+      - name: Start static server
+        run: npm run start &
+      - name: Wait for server
+        run: |
+          for i in {1..10}; do
+            if curl -sSf http://127.0.0.1:8080 > /dev/null; then exit 0; fi
+            sleep 1
+          done
+          echo "Server did not start" && exit 1
+      - name: Run Lighthouse CI
+        run: npm run lhci:autorun
+      - name: Upload LHCI report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lhci-report
+          path: .lighthouseci/

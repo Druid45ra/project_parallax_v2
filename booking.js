@@ -36,10 +36,10 @@ document.addEventListener("DOMContentLoaded", () => {
     let valid = true;
 
     // Reset state
-    [checkIn, checkOut, email, phone].forEach(clearError);
+    [checkIn, checkOut, email, phone].forEach(i => { if (i) clearError(i); });
 
     // Date validation
-    if (checkIn.value && checkOut.value) {
+    if (checkIn && checkOut && checkIn.value && checkOut.value) {
       if (new Date(checkOut.value) <= new Date(checkIn.value)) {
         showError(checkOut, "Data de check-out trebuie să fie după check-in.");
         valid = false;
@@ -47,13 +47,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Email
-    if (!isValidEmail(email.value)) {
+    if (email && !isValidEmail(email.value)) {
       showError(email, "Introdu un email valid.");
       valid = false;
     }
 
     // Phone
-    if (!isValidPhone(phone.value)) {
+    if (phone && !isValidPhone(phone.value)) {
       showError(phone, "Introdu un număr de telefon valid.");
       valid = false;
     }
