@@ -8,7 +8,13 @@
         "prettier:write": "prettier --write \"**/*.{html,css,js,json,md}\"",
         "html:validate": "html-validate \"index.html\"",
         "lhci:autorun": "lhci autorun --upload.target=temporary-public-storage",
-        "ci": "npm run prettier:check && npm run html:validate && npm run lhci:autorun",
+        "lint:eslint": "eslint . --ext .js",
+        "lint:style": "stylelint \"**/*.css\"",
+        "lint": "npm run lint:eslint && npm run lint:style",
+        "accessibility": "pa11y http://127.0.0.1:8080",
+        "images:optimize": "node -e \"require('fs').mkdirSync('dist/assets',{recursive:true})\" && imagemin \"assets/*\" --out-dir=dist/assets",
+        "audit": "npm audit --audit-level=moderate",
+        "ci": "npm run lint && npm run prettier:check && npm run html:validate && npm run lhci:autorun",
         "prepare": "husky install"
     },
     "devDependencies": {
@@ -17,7 +23,15 @@
         "html-validate": "^7.5.0",
         "@lhci/cli": "^0.8.0",
         "husky": "^8.0.3",
-        "lint-staged": "^14.3.0"
+        "lint-staged": "^14.3.0",
+        "eslint": "^8.48.0",
+        "stylelint": "^15.0.0",
+        "stylelint-config-standard": "^30.0.0",
+        "pa11y": "^6.0.0",
+        "imagemin-cli": "^7.0.1",
+        "imagemin-mozjpeg": "^9.0.0",
+        "imagemin-pngquant": "^9.0.2",
+        "imagemin-webp": "^7.0.0"
     },
     "lint-staged": {
         "*.html": [
