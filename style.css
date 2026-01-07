@@ -851,5 +851,14 @@
             .booking-container {
                 padding: 2rem;
             }
+
+            .form-error {
+                color: #b91c1c;
+                font-size: 0.85rem;
+                margin-top: 0.3rem;
+            }
+
+            .submit-btn.success {
+                background: #2d4a3e;
+            }
         }
-    
