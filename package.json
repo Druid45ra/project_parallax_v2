@@ -31,7 +31,7 @@
         "stylelint": "^15.0.0",
         "stylelint-config-standard": "^30.0.0",
         "pa11y": "^6.0.0",
-        "imagemin-cli": "^7.0.1",
+        "imagemin-cli": "^6.0.0",
         "imagemin-mozjpeg": "^9.0.0",
         "imagemin-pngquant": "^9.0.2",
         "imagemin-webp": "^7.0.0",
