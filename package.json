@@ -12,6 +12,7 @@
         "lint:style": "stylelint \"**/*.css\"",
         "lint": "npm run lint:eslint && npm run lint:style",
         "accessibility": "pa11y http://127.0.0.1:8080",
+        "pa11y:report": "pa11y http://127.0.0.1:8080 --reporter json > pa11y-report.json",
         "images:optimize": "node -e \"require('fs').mkdirSync('dist/assets',{recursive:true})\" && imagemin \"assets/*\" --out-dir=dist/assets",
         "bg:build": "node scripts/generate-bg-assets.js",
         "build": "npm run images:optimize || true && npm run bg:build || true",
@@ -33,7 +34,9 @@
         "imagemin-cli": "^7.0.1",
         "imagemin-mozjpeg": "^9.0.0",
         "imagemin-pngquant": "^9.0.2",
-        "imagemin-webp": "^7.0.0"
+        "imagemin-webp": "^7.0.0",
+        "node-fetch": "^2.6.7",
+        "sharp": "^0.32.1"
     },
     "lint-staged": {
         "*.html": [
