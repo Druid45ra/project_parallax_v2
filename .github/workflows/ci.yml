@@ -38,7 +38,14 @@ jobs:
       - name: Run Lighthouse CI
         run: npm run lhci:autorun
       - name: Accessibility check (pa11y)
-        run: npm run accessibility || true
+        run: |
+          npm run accessibility --silent -- "--reporter json" > pa11y-report.json || true
+      - name: Upload pa11y report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pa11y-report
+          path: pa11y-report.json
       - name: Upload LHCI report
         if: always()
         uses: actions/upload-artifact@v4
