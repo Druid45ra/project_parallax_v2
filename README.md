@@ -1,141 +1,138 @@
 # project_parallax_v2
 
-# Vârful de Vis – Website Pensiune Montană Premium
+Project parallax v2  is a high-performance, responsive landing page for a boutique hotel located in the mountains. This project serves as a showcase for modern frontend best practices, transitioning from a basic structure to a professionally audited and refactored architecture.
 
-Website de prezentare pentru **Vârful de Vis**, o pensiune montană premium situată în Sinaia, România. Proiectul este realizat ca **site static HTML + CSS + JavaScript minimal**, optimizat pentru performanță, accesibilitate și SEO.
+🎯 Project Goals & Evolution:
+The project started as a standard landing page and was systematically upgraded through a Senior-level Technical Audit to meet industry standards in:
 
----
+    Performance: Drastic reduction in initial load time.
 
-## 🎯 Scopul proiectului
+    Accessibility: Semantic HTML and WCAG-compliant attributes.
 
-* Prezentarea pensiunii, camerelor și experiențelor oferite
-* Colectarea cererilor de rezervare printr-un formular validat UX
-* Oferirea unei experiențe vizuale premium, inspirată de natură
-* Bază solidă pentru extindere ulterioară (backend / framework)
+    Code Quality: Clean, modular, and maintainable CSS/JS.
 
----
+🛠️ Key Technical Features
+1. Smart Booking System
 
-## 🧱 Tehnologii utilizate
+    Dynamic Validation: Real-time JavaScript logic that prevents booking dates in the past.
 
-* **HTML5** – structură semantică validă
-* **CSS3** – layout modern, variabile CSS, responsive design
-* **JavaScript (Vanilla)** – validare formular & UX
-* **Google Fonts** – Playfair Display, Inter
-* **Schema.org (JSON-LD)** – SEO pentru domeniul turismului
+    Date Synchronization: Automatically updates the minimum check-out date based on the check-in selection to ensure a valid stay duration.
 
----
+    User Feedback: Inline error messaging with visual cues and double-submit prevention.
 
-## 📂 Structura proiectului
+2. Modern UI/UX & Responsive Design
 
+    Mobile-First Approach: Custom-built hamburger menu and navigation system designed for high conversion on mobile devices.
+
+    iOS/Safari Optimized Parallax: A specialized CSS implementation that solves the common "parallax jump" bug on mobile touch devices.
+
+    Fluid Transitions: 300ms cubic-bezier transitions on all interactive elements for a premium feel.
+
+3. SEO & Semantic Integrity
+
+    Schema.org Integration: JSON-LD structured data to help search engines index the site as a LodgingBusiness.
+
+    SEO Best Practices: Optimized meta-tags, hierarchical heading structure, and image alt-text.
+
+    Semantic HTML5: Full use of <main>, <section>, and <article> tags for better screen reader compatibility.
+
+🚀 Optimization & Performance
+
+    Lazy Loading: Native loading="lazy" implementation for the gallery and activity sections.
+
+    Asset Management: Optimized external font loading with font-display: swap.
+
+    Refactored CSS: Replaced inline styles with a centralized variable system (:root) for easy global branding changes.
+
+💻 Tech Stack
+
+- HTML5 — semantic markup
+- CSS3 — responsive layout and CSS variables
+- JavaScript (Vanilla) — booking form validation and small UI interactions
+- Google Fonts — Playfair Display, Inter
+- Schema.org (JSON-LD) — basic SEO structured data
+
+
+📦 How to Run
+
+    Clone the Repo: git clone https://github.com/Druid45ra/project_parallax_v2.git
+
+    Open Index: Launch index.html in any modern browser.
+
+    Live Demo: [https://github.com/Druid45ra/project_parallax_v2](https://github.com/Druid45ra/project_parallax_v2)
+
+## 📂 Project Structure
+project_parallax_v2/
+
+├── index.html        # Main site markup
+├── style.css         # Global styles (UI + responsive)
+├── booking.js        # Minimal booking form JS
+├── README.md         # Project documentation (this file)
+├── favicon.ico       # Optional favicon
+└── assets/           # Optional local images / icons
 ```
-project-root/
-│
-├── index.html        # Structura principală a site-ului
-├── style.css         # Stiluri globale (UI + responsive)
-├── booking.js        # JS minimal pentru formularul de rezervare
-├── README.md         # Documentația proiectului
-├── favicon.ico       # Favicon (opțional)
-└── assets/           # (opțional) imagini locale / iconuri
-```
 
 ---
 
-## ⚙️ Funcționalități
+## ⚙️ Local development
 
-### ✔ Implementate
+The site is 100% static.
 
-* Layout responsive (desktop / tablet / mobile)
-* Navigație sticky
-* Secțiuni multiple (Hero, Camere, Pachete, Blog, Galerie etc.)
-* Formular de rezervare cu:
+### Quick start
 
-  * validare date
-  * validare email
-  * validare telefon
-  * feedback UX fără reload
-* Optimizare SEO (meta tags, Open Graph, Schema.org)
-* Lazy loading pentru imagini
+Open `index.html` directly in your browser for a simple preview.
 
-### ⏳ Neimplementate (intenționat)
+### Recommended (local server)
 
-* Backend (trimitere email / stocare rezervări)
-* Autentificare utilizatori
-* CMS
-
----
-
-## 🚀 Rulare locală
-
-Proiectul este **100% static**.
-
-### Varianta simplă
-
-Deschide fișierul `index.html` direct în browser.
-
-### Varianta recomandată
-
-Rulează cu un server local (pentru comportament identic cu producția):
+Run a simple static server for the closest production-like behavior:
 
 ```bash
-# folosind VS Code Live Server
-sau
+# Using VS Code Live Server extension
+or
 
 python -m http.server
 ```
 
-Accesează: `http://localhost:8000`
+Open: `http://localhost:8000`
 
 ---
 
-## 🔍 SEO & Lighthouse
+## 🔍 SEO, Performance & Accessibility
 
-Proiectul este optimizat pentru:
+This project emphasizes:
 
-* **SEO** – title, meta description, heading-uri corecte, Schema.org
-* **Performance** – fără JS heavy, lazy loading imagini
-* **Accessibility** – label-uri corecte, aria attributes
+- SEO: proper titles, meta descriptions, headings and Schema.org
+- Performance: minimal JS, lazy-loaded images and responsive assets
+- Accessibility: labels, ARIA attributes and pa11y checks in CI
 
-Scoruri Lighthouse așteptate:
+Typical Lighthouse targets:
 
-* Performance: **85+**
-* Accessibility: **90+**
-* Best Practices: **95–100**
-* SEO: **90+**
-
----
-
-## 🧩 Extensii recomandate
-
-* Integrare backend (PHP / Node / API)
-* Salvare rezervări într-o bază de date
-* Trimitere email automat
-* Scroll spy pentru navigație
-* Galerie modal (lightbox)
-* Migrare către React / Astro / Next.js
+- Performance: 85+
+- Accessibility: 90+
+- Best Practices: 95–100
+- SEO: 90+
 
 ---
 
-## 🛡️ Licență
+## 🧩 Recommended Enhancements
 
-Acest proiect este furnizat ca **template educațional / demo**.
-
-Pentru utilizare comercială:
-
-* înlocuiește imaginile stock
-* personalizează conținutul
-* adaugă backend real
+- Integrate a lightweight backend (serverless function or small API) to persist bookings
+- Add automated image generation (WebP, srcset) for backgrounds and image optimization
+- Add CI checks (ESLint, Stylelint, pa11y, Lighthouse) — already configured in `.github/workflows`
+- Consider visual regression tests for the gallery and hero sections
 
 ---
 
-## ✍️ Autor
+## 🛡 License
 
-Creat și arhitecturat ca proiect demonstrativ de front-end modern, cu focus pe:
+This project is provided as an educational/demo template. For production use, replace stock images, adapt content and add a proper backend.
 
-* claritate
-* performanță
-* UX
-* bune practici web
+---
 
+## ✍️ Author
 
+An example front-end scaffold focusing on clarity, performance and maintainability.
 
-> „Un site bun nu este cel care arată bine, ci cel care poate fi întreținut și scalat fără frică.”
+"A good site is not only one that looks great, but one that can be maintained and scaled without fear."
+
+[Druid45ra](https://github.com/Druid45ra)
