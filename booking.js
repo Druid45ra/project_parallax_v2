@@ -9,6 +9,30 @@ document.addEventListener("DOMContentLoaded", () => {
   const phone = form.querySelector("#phone");
   const submitBtn = form.querySelector(".submit-btn");
 
+  // --- 1. SETĂRI INIȚIALE DATE (Anti-trecut) ---
+  
+  // Setează data minimă pentru Check-in ca fiind ziua de azi
+  const today = new Date().toISOString().split('T')[0];
+  checkIn.setAttribute('min', today);
+
+  // Sincronizare automată Check-out în funcție de Check-in
+  checkIn.addEventListener('change', () => {
+    if (checkIn.value) {
+      const nextDay = new Date(checkIn.value);
+      nextDay.setDate(nextDay.getDate() + 1);
+      const minCheckOut = nextDay.toISOString().split('T')[0];
+      
+      checkOut.setAttribute('min', minCheckOut);
+      
+      // Dacă Check-out-ul este deja completat dar e invalid (înainte de Check-in), îl resetăm
+      if (checkOut.value && checkOut.value <= checkIn.value) {
+        checkOut.value = minCheckOut;
+      }
+    }
+  });
+
+  // --- 2. FUNCȚII VALIDARE ---
+
   const showError = (input, message) => {
     clearError(input);
 
@@ -27,32 +51,39 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const isValidEmail = (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-
   const isValidPhone = (value) => /^[0-9+\s()-]{7,}$/.test(value);
+
+  // --- 3. LOGICĂ SUBMIT ---
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
     let valid = true;
 
-    // Reset state
+    // Resetare erori anterioare
     [checkIn, checkOut, email, phone].forEach(i => { if (i) clearError(i); });
 
-    // Date validation
-    if (checkIn && checkOut && checkIn.value && checkOut.value) {
-      if (new Date(checkOut.value) <= new Date(checkIn.value)) {
-        showError(checkOut, "Data de check-out trebuie să fie după check-in.");
+    // Validare Date
+    if (!checkIn.value) {
+        showError(checkIn, "Te rugăm să alegi data de sosire.");
         valid = false;
-      }
+    }
+    
+    if (!checkOut.value) {
+        showError(checkOut, "Te rugăm să alegi data de plecare.");
+        valid = false;
+    } else if (new Date(checkOut.value) <= new Date(checkIn.value)) {
+        showError(checkOut, "Data de plecare trebuie să fie după sosire.");
+        valid = false;
     }
 
-    // Email
+    // Validare Email
     if (email && !isValidEmail(email.value)) {
-      showError(email, "Introdu un email valid.");
+      showError(email, "Introdu o adresă de email validă.");
       valid = false;
     }
 
-    // Phone
+    // Validare Telefon
     if (phone && !isValidPhone(phone.value)) {
       showError(phone, "Introdu un număr de telefon valid.");
       valid = false;
@@ -60,27 +91,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!valid) return;
 
-    // UX: disable submit
+    // UX: Dezactivare buton și feedback vizual
     submitBtn.disabled = true;
+    const originalText = submitBtn.textContent;
     submitBtn.textContent = "Se trimite...";
 
-    // Simulare trimitere
+    // Simulare trimitere (Server Mock)
     setTimeout(() => {
       submitBtn.textContent = "Cerere trimisă ✓";
       submitBtn.classList.add("success");
 
       form.reset();
 
+      // Resetăm și atributele de min pentru următorul ciclu
+      checkIn.setAttribute('min', today);
+      checkOut.removeAttribute('min');
+
       setTimeout(() => {
         submitBtn.disabled = false;
-        submitBtn.textContent = "Trimite cererea";
+        submitBtn.textContent = originalText;
         submitBtn.classList.remove("success");
       }, 3000);
-    }, 1200);
+    }, 1500);
   });
 });
 
-// Nav Toggle Logic
+// --- 4. LOGICĂ NAVIGAȚIE MOBILE (Hamburger) ---
 const navToggle = document.querySelector('.nav-toggle');
 const navLinks = document.querySelector('.nav-links');
 
@@ -90,7 +126,7 @@ if (navToggle && navLinks) {
         navToggle.classList.toggle('open');
     });
 
-    // Închide meniul când dai click pe un link
+    // Închide meniul automat când se face click pe un link de ancoră
     document.querySelectorAll('.nav-links a').forEach(link => {
         link.addEventListener('click', () => {
             navLinks.classList.remove('active');

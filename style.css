@@ -935,3 +935,16 @@
                 font-size: 2.5rem;
             }
         }
+
+            input[aria-invalid="true"] {
+                border-color: #b91c1c !important;
+                background-color: #fef2f2;
+            }
+
+            .form-error {
+                color: #b91c1c;
+                font-size: 0.8rem;
+                font-weight: 600;
+                margin-top: 0.2rem;
+                display: block;
+            }
