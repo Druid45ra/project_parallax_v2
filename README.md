@@ -1,37 +1,52 @@
 # project_parallax_v2
 
-# Vârful de Vis – Website Pensiune Montană Premium
+Vârful de Vis - Premium Mountain Resort Landing Page
 
-Website de prezentare pentru **Vârful de Vis**, o pensiune montană premium situată în Sinaia, România. Proiectul este realizat ca **site static HTML + CSS + JavaScript minimal**, optimizat pentru performanță, accesibilitate și SEO.
+Project parallax v2  is a high-performance, responsive landing page for a boutique hotel located in the mountains. This project serves as a showcase for modern frontend best practices, transitioning from a basic structure to a professionally audited and refactored architecture.
 
----
+🎯 Project Goals & Evolution:
+The project started as a standard landing page and was systematically upgraded through a Senior-level Technical Audit to meet industry standards in:
 
-## 🎯 Scopul proiectului
+    Performance: Drastic reduction in initial load time.
 
-* Prezentarea pensiunii, camerelor și experiențelor oferite
-* Colectarea cererilor de rezervare printr-un formular validat UX
-* Oferirea unei experiențe vizuale premium, inspirată de natură
-* Bază solidă pentru extindere ulterioară (backend / framework)
+    Accessibility: Semantic HTML and WCAG-compliant attributes.
 
----
-# project_parallax_v2
+    Code Quality: Clean, modular, and maintainable CSS/JS.
 
-# Vârful de Vis — Mountain Guesthouse Showcase
+🛠️ Key Technical Features
+1. Smart Booking System
 
-This repository contains a minimal, static showcase website for "Vârful de Vis", a premium mountain guesthouse in Sinaia, Romania. The project is a simple static site built with HTML, CSS and vanilla JavaScript, optimized for performance, accessibility and SEO.
+    Dynamic Validation: Real-time JavaScript logic that prevents booking dates in the past.
 
----
+    Date Synchronization: Automatically updates the minimum check-out date based on the check-in selection to ensure a valid stay duration.
 
-## 🎯 Project Goals
+    User Feedback: Inline error messaging with visual cues and double-submit prevention.
 
-- Present the guesthouse, rooms and guest experiences
-- Collect reservation requests via a small UX-validated booking form
-- Provide a premium visual experience inspired by nature
-- Serve as a clean, maintainable starter for future backend or framework migrations
+2. Modern UI/UX & Responsive Design
 
----
+    Mobile-First Approach: Custom-built hamburger menu and navigation system designed for high conversion on mobile devices.
 
-## 🧱 Technologies
+    iOS/Safari Optimized Parallax: A specialized CSS implementation that solves the common "parallax jump" bug on mobile touch devices.
+
+    Fluid Transitions: 300ms cubic-bezier transitions on all interactive elements for a premium feel.
+
+3. SEO & Semantic Integrity
+
+    Schema.org Integration: JSON-LD structured data to help search engines index the site as a LodgingBusiness.
+
+    SEO Best Practices: Optimized meta-tags, hierarchical heading structure, and image alt-text.
+
+    Semantic HTML5: Full use of <main>, <section>, and <article> tags for better screen reader compatibility.
+
+🚀 Optimization & Performance
+
+    Lazy Loading: Native loading="lazy" implementation for the gallery and activity sections.
+
+    Asset Management: Optimized external font loading with font-display: swap.
+
+    Refactored CSS: Replaced inline styles with a centralized variable system (:root) for easy global branding changes.
+
+💻 Tech Stack
 
 - HTML5 — semantic markup
 - CSS3 — responsive layout and CSS variables
@@ -39,13 +54,18 @@ This repository contains a minimal, static showcase website for "Vârful de Vis"
 - Google Fonts — Playfair Display, Inter
 - Schema.org (JSON-LD) — basic SEO structured data
 
----
+
+📦 How to Run
+
+    Clone the Repo: git clone https://github.com/Druid45ra/project_parallax_v2.git
+
+    Open Index: Launch index.html in any modern browser.
+
+    Live Demo: [https://github.com/Druid45ra/project_parallax_v2](https://github.com/Druid45ra/project_parallax_v2)
 
 ## 📂 Project Structure
+project_parallax_v2/
 
-```
-project-root/
-│
 ├── index.html        # Main site markup
 ├── style.css         # Global styles (UI + responsive)
 ├── booking.js        # Minimal booking form JS
@@ -96,21 +116,6 @@ Typical Lighthouse targets:
 
 ---
 
-## 🖼 Preview
-
-Add a screenshot to `assets/preview.png` and it will render below. If the project is deployed, replace the image with the live URL or a deployed preview.
-
-![Site preview](assets/preview.png)
-
-Key pages and sections:
-
-- Hero / Welcome section with a large background image
-- Rooms gallery and featured packages
-- Blog teasers and read-more interactions
-- Booking form with client-side validation
-
----
-
 ## 🧩 Recommended Enhancements
 
 - Integrate a lightweight backend (serverless function or small API) to persist bookings
@@ -131,4 +136,5 @@ This project is provided as an educational/demo template. For production use, re
 An example front-end scaffold focusing on clarity, performance and maintainability.
 
 "A good site is not only one that looks great, but one that can be maintained and scaled without fear."
-* claritate
+
+[Druid45ra](https://github.com/Druid45ra)
