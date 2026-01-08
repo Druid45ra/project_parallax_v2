@@ -76,10 +76,10 @@
         <!-- Navigation -->
         <nav>
             <div class="logo">Vârful de Vis</div>
-            <button class="nav-toggle" aria-label="Deschide meniul">
+            <button class="nav-toggle" aria-label="Deschide meniul" aria-expanded="false" aria-controls="nav-links">
                 <span class="hamburger"></span>
             </button>
-            <ul class="nav-links">
+            <ul id="nav-links" class="nav-links">
                 <li><a href="#acasa">Acasă</a></li>
                 <li><a href="#camere">Camere</a></li>
                 <li><a href="#rezervari">Rezervări</a></li>
@@ -616,6 +616,7 @@
         </div>
     </footer>
     <script src="booking.js" defer></script>
+    <script src="nav-toggle.js" defer></script>
 </body>
 
 </html>
