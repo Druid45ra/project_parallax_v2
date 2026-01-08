@@ -79,3 +79,22 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 1200);
   });
 });
+
+// Nav Toggle Logic
+const navToggle = document.querySelector('.nav-toggle');
+const navLinks = document.querySelector('.nav-links');
+
+if (navToggle && navLinks) {
+    navToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        navToggle.classList.toggle('open');
+    });
+
+    // Închide meniul când dai click pe un link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            navToggle.classList.remove('open');
+        });
+    });
+}
