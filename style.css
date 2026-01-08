@@ -785,8 +785,9 @@
 
         .social-links {
             display: flex;
-            gap: 1.5rem;
-            margin-top: 1rem;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
         }
 
         .social-links a,
