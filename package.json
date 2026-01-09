@@ -28,7 +28,7 @@
         "husky": "^8.0.3",
         "lint-staged": "^14.3.0",
         "eslint": "^9.39.2",
-        "stylelint": "^15.0.0",
+        "stylelint": "^16.26.1",
         "stylelint-config-standard": "^30.0.0",
         "pa11y": "^9.0.1",
         "imagemin-cli": "^7.0.1",
