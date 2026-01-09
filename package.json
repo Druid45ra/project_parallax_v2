@@ -30,7 +30,7 @@
         "eslint": "^8.48.0",
         "stylelint": "^15.0.0",
         "stylelint-config-standard": "^30.0.0",
-        "pa11y": "^6.0.0",
+        "pa11y": "^9.0.1",
         "imagemin-cli": "^7.0.1",
         "imagemin-mozjpeg": "^9.0.0",
         "imagemin-pngquant": "^10.0.0",
