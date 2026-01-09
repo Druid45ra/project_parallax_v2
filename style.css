@@ -825,6 +825,18 @@
             transform: translateY(-3px);
         }
 
+        .social-link svg {
+            width: 24px;
+            height: 24px;
+            transition: transform 0.3s ease, stroke 0.3s ease;
+        }
+
+        .social-link:hover svg {
+            transform: translateY(-3px);
+            stroke: var(--gold);
+            /* Schimbă culoarea la hover */
+        }
+
         .footer-bottom {
             text-align: center;
             padding-top: 2rem;
@@ -903,8 +915,9 @@
                 gap: 2.5rem;
             }
 
-            .nav-links.active {
-                right: 0;
+            .nav-links--open {
+                right: 0 !important;
+                display: flex;
             }
 
             /* Parallax Fix for Mobile */
@@ -936,15 +949,32 @@
             }
         }
 
-            input[aria-invalid="true"] {
-                border-color: #b91c1c !important;
-                background-color: #fef2f2;
-            }
+        input[aria-invalid="true"] {
+            border-color: #b91c1c !important;
+            background-color: #fef2f2;
+        }
 
-            .form-error {
-                color: #b91c1c;
-                font-size: 0.8rem;
-                font-weight: 600;
-                margin-top: 0.2rem;
-                display: block;
-            }
+        .form-error {
+            color: #b91c1c;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 0.2rem;
+            display: block;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--gold);
+            color: white;
+            padding: 8px;
+            z-index: 2000;
+            transition: top 0.3s;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }

@@ -115,22 +115,3 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 1500);
   });
 });
-
-// --- 4. LOGICĂ NAVIGAȚIE MOBILE (Hamburger) ---
-const navToggle = document.querySelector('.nav-toggle');
-const navLinks = document.querySelector('.nav-links');
-
-if (navToggle && navLinks) {
-    navToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        navToggle.classList.toggle('open');
-    });
-
-    // Închide meniul automat când se face click pe un link de ancoră
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-            navLinks.classList.remove('active');
-            navToggle.classList.remove('open');
-        });
-    });
-}
